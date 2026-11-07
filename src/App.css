@@ -1,0 +1,109 @@
+
+#root {
+  min-height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  background: white;
+  border: 1px solid #e8e8e2;
+  border-radius: 12px;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.035);
+}
+
+.form-card h1 {
+  margin: 0;
+  font-size: 27px;
+  letter-spacing: -1.2px;
+}
+
+.form-card h1 span {
+  color: #7772d9;
+}
+
+.form-card > p {
+  margin: 7px 0 28px;
+  color: #888880;
+  font-size: 13px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 21px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #35352f;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e5df;
+  border-radius: 7px;
+  outline: none;
+  font-size: 13px;
+  color: #333;
+  background: white;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #7772d9;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #aaa;
+}
+
+.form-card button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 7px;
+  background: #6964c9;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-card button:hover {
+  background: #5550b5;
+}
+.form-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-message {
+  margin: 15px 0 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.form-message.success {
+  color: #43865b;
+}
+
+.form-message.error {
+  color: #d04d4d;
+}
