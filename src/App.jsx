@@ -8,6 +8,7 @@ function App() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [success, setSuccess] = useState(false)
 
   const canSubmit =
@@ -102,12 +103,35 @@ function App() {
 
           <div className="field">
             <input
-              type="text"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
               maxLength={5000}
             />
+            <button
+              type="button"
+              className="eye-btn"
+              onClick={() => setShowPassword((s) => !s)}
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" />
+                <circle cx="12" cy="12" r="3" />
+                {!showPassword && <path d="M3 3l18 18" />}
+              </svg>
+            </button>
           </div>
 
           <button
