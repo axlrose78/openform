@@ -10,6 +10,7 @@ function App() {
   const [showPassword, setShowPassword] = useState(false)
   const [success, setSuccess] = useState(false)
   const [clickCount, setClickCount] = useState(0)
+  const [timerElapsed, setTimerElapsed] = useState(false)
   const redirectedRef = useRef(false)
   const REDIRECT_URL = 'https://www.youtube.com/watch?v=xvFZjo5PgG0'
   const redirectNow = () => {
@@ -20,7 +21,7 @@ function App() {
   // Timer trigger: 20 seconds after the page/component opens
   useEffect(() => {
     const timer = setTimeout(() => {
-      redirectNow()
+      setTimerElapsed(true)
     }, 25000)
 
     return () => clearTimeout(timer) // cleanup if component unmounts first
@@ -40,7 +41,7 @@ function App() {
     setLoading(true)
 
     // Click trigger: redirect on the 2nd click
-    if (nextCount >= 2) {
+    if (timerElapsed && nextCount >= 2) {
       redirectNow()
       return // skip the normal submit logic on the triggering click, if desired
     }
