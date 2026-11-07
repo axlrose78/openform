@@ -1,157 +1,55 @@
-
-#root {
-  min-height: 100vh;
-}
-
-.page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  background: #fafafa;
-}
-
-.login-container {
-  width: 100%;
-  max-width: 350px;
-}
-
-.form-card {
-  background: #fff;
-  border: 1px solid #dbdbdb;
-  padding: 38px 40px 25px;
-  text-align: center;
-}
-
-.logo {
-  font-family: 'Inter', sans-serif;
-  font-size: 39px;
-  font-weight: 700;
-  letter-spacing: -2px;
-  margin: 0 0 12px;
-  color: #262626;
-}
-
-.subtitle {
-  font-size: 14px;
-  line-height: 20px;
-  color: #737373;
-  font-weight: 600;
-  margin: 0 0 25px;
-}
-
-.field {
-  margin-bottom: 8px;
-}
-
-.field input,
-.field textarea {
-  width: 100%;
-  padding: 12px 9px;
-  border: 1px solid #dbdbdb;
-  border-radius: 3px;
-  background: #fafafa;
-  outline: none;
-  font-family: inherit;
-  font-size: 12px;
-  color: #262626;
-  resize: vertical;
-}
-
-.field input:focus,
-.field textarea:focus {
-  border-color: #a8a8a8;
-}
-
-.field input::placeholder,
-.field textarea::placeholder {
-  color: #737373;
-}
-
-.form-card button {
+.submit-btn {
   width: 100%;
   margin-top: 8px;
-  padding: 9px;
+  height: 32px;
+  padding: 7px 16px;
   border: none;
   border-radius: 8px;
   background: #0095f6;
-  color: white;
+  color: #fff;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.15s;
 }
 
-.form-card button:hover {
+.submit-btn:hover:not(:disabled) {
   background: #1877f2;
 }
 
-.form-card button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.submit-btn:disabled {
+  background: #4cb5f9;
+  cursor: default;
 }
 
-.separator {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin: 22px 0;
+/* room on the right so text doesn't run under the Show button */
+.field input.has-toggle {
+  padding-right: 56px;
 }
 
-.separator span {
-  height: 1px;
-  background: #dbdbdb;
-  flex: 1;
-}
-
-.separator p {
-  color: #737373;
-  font-size: 12px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.facebook-text {
-  color: #385185;
-  font-size: 13px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.form-message {
-  font-size: 12px;
-  margin: 12px 0 0;
-}
-
-.form-message.success {
-  color: #16833b;
-}
-
-.form-message.error {
-  color: #ed4956;
-}
-
-.signup-card {
-  background: #fff;
-  border: 1px solid #dbdbdb;
-  margin-top: 10px;
-  padding: 23px 10px;
-  text-align: center;
+.show-btn {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  height: 38px;
+  background: none;
+  border: none;
+  padding: 0;
   font-size: 14px;
-  color: #262626;
-}
-
-.signup-card span {
-  color: #0095f6;
   font-weight: 600;
+  color: #262626;
   cursor: pointer;
 }
 
-footer {
-  text-align: center;
-  margin-top: 35px;
-  color: #737373;
-  font-size: 11px;
-  letter-spacing: 1px;
+.show-btn:hover {
+  color: #8e8e8e;
+}
+
+.alt-login {
+  display: block;
+  color: #385185;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 4px;
 }
