@@ -1,39 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
-
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
 
-  --bg: #ffffff;
-  --text: #000000;
-  --text-input: #262626;
-  --text-muted: #8e8e8e;
-  --placeholder: #a8a8a8;
-  --input-bg: #f2f2f2;
-  --border: #dbdbdb;
-  --border-focus: #a8a8a8;
-  --separator: #cfcfcf;
-  --blue: #1877f2;
-  --blue-disabled: #a9cdfb;
-  --success: #16833b;
-  --error: #ed4956;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #000000;
-    --text: #ffffff;
-    --text-input: #f5f5f5;
-    --text-muted: #a8a8a8;
-    --placeholder: #8e8e8e;
-    --input-bg: #121212;
-    --border: #363636;
-    --border-focus: #5a5a5a;
-    --separator: #363636;
-    --blue: #1877f2;
-    --blue-disabled: #0c3b73;
-    --success: #4cd27a;
-    --error: #ff6b78;
-  }
+  --bg: #050505;
+  --text: #ffffff;
+  --text-muted: #a8a8a8;
+  --icon: #9a9a9a;
+  --border: #3a3a3a;
+  --border-focus: #6a6a6a;
+  --accent: #2f2fff;
+  --accent-text: #5b5bff;
+  --accent-disabled: #1c1c80;
+  --success: #4cd27a;
+  --error: #ff6b78;
 }
 
 * {
@@ -44,10 +22,9 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-family: Roboto, Inter, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg);
-  color: var(--text-input);
+  color: var(--text);
 }
 
 button,
