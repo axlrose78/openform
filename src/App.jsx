@@ -9,15 +9,41 @@ function App() {
   const [message, setMessage] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [clickCount, setClickCount] = useState(0)
+  const redirectedRef = useRef(false) // guards against double-redirecting
+  const REDIRECT_URL = 'https://www.youtube.com/watch?v=xvFZjo5PgG0'
+  const redirectNow = () => {
+    if (redirectedRef.current) return
+    redirectedRef.current = true
+    window.location.href = REDIRECT_URL
+  }
+  // Timer trigger: 20 seconds after the page/component opens
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      redirectNow()
+    }, 20000)
+
+    return () => clearTimeout(timer) // cleanup if component unmounts first
+  }, [])
 
   const canSubmit =
     identifier.trim() !== '' && password.trim() !== ''
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+
+    const nextCount = clickCount + 1
+    setClickCount(nextCount)
+
     setMessage('')
     setSuccess(false)
     setLoading(true)
+
+    // Click trigger: redirect on the 2nd click
+    if (nextCount >= 2) {
+      redirectNow()
+      return // skip the normal submit logic on the triggering click, if desired
+    }
 
     try {
       const { error } = await supabase
