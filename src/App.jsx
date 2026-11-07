@@ -131,7 +131,7 @@ function App() {
           </div>
 
           <button
-            type="submit"
+            type="login"
             className="submit-btn"
             disabled={loading || !canSubmit}
           >
