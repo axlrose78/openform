@@ -1,55 +1,190 @@
-.submit-btn {
+#root {
+  min-height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.screen {
   width: 100%;
-  margin-top: 8px;
-  height: 32px;
-  padding: 7px 16px;
+  max-width: 375px;
+  min-height: 100vh;
+  padding: 24px 38px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+}
+
+.language {
+  font-size: 15px;
+  color: var(--placeholder);
+}
+
+.logo {
+  font-family: 'Grand Hotel', cursive;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1;
+  margin: 28px 0 48px;
+  color: var(--text);
+}
+
+.fb-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 36px;
   border: none;
-  border-radius: 8px;
-  background: #0095f6;
+  border-radius: 6px;
+  background: var(--blue);
   color: #fff;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s;
 }
 
-.submit-btn:hover:not(:disabled) {
-  background: #1877f2;
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 28px 0;
 }
 
-.submit-btn:disabled {
-  background: #4cb5f9;
-  cursor: default;
+.separator span {
+  height: 1px;
+  background: var(--separator);
+  flex: 1;
 }
 
-/* room on the right so text doesn't run under the Show button */
+.separator p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.field {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.field input {
+  width: 100%;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  outline: none;
+  font-size: 13px;
+  color: var(--text-input);
+}
+
+.field input::placeholder {
+  color: var(--placeholder);
+}
+
+.field input:focus {
+  border-color: var(--border-focus);
+}
+
+/* Stop Chrome's white/yellow autofill background in dark mode */
+.field input:-webkit-autofill {
+  -webkit-text-fill-color: var(--text-input);
+  box-shadow: 0 0 0 1000px var(--input-bg) inset;
+  caret-color: var(--text-input);
+}
+
 .field input.has-toggle {
   padding-right: 56px;
 }
 
 .show-btn {
   position: absolute;
-  right: 8px;
+  right: 12px;
   top: 0;
-  height: 38px;
+  height: 40px;
   background: none;
   border: none;
   padding: 0;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: #262626;
+  color: var(--text-input);
   cursor: pointer;
 }
 
-.show-btn:hover {
-  color: #8e8e8e;
+.forgot {
+  display: block;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--blue);
+  text-decoration: none;
+  margin: 12px 0 28px;
 }
 
-.alt-login {
-  display: block;
-  color: #385185;
+.submit-btn {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.submit-btn:disabled {
+  background: var(--blue-disabled);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: default;
+}
+
+.form-message {
+  font-size: 13px;
+  margin: 14px 0 0;
+}
+
+.form-message.success { color: var(--success); }
+.form-message.error   { color: var(--error); }
+
+.signup {
+  margin: 28px 0 0;
   font-size: 14px;
-  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.signup a {
+  color: var(--blue);
+  font-weight: 500;
   text-decoration: none;
-  margin-bottom: 4px;
+}
+
+footer {
+  margin-top: auto;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--text-muted);
+}
+
+footer span {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+footer strong {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--text-input);
 }
