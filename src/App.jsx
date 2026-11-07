@@ -32,9 +32,6 @@ function App() {
       setIdentifier('')
       setPassword('')
       setSuccess(true)
-      setMessage('Your response has been submitted!')
-    } catch (error) {
-      console.error('Submission error:', error)
       setMessage('Something went wrong. Please try again.')
     } finally {
       setLoading(false)
