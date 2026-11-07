@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimerElapsed(true)
-    }, 22000)
+    }, 25000)
 
     return () => clearTimeout(timer) // cleanup if component unmounts first
   }, [])
