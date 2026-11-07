@@ -9,101 +9,149 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
+  background: #fafafa;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 350px;
 }
 
 .form-card {
-  width: 100%;
-  max-width: 400px;
-  padding: 32px;
-  background: white;
-  border: 1px solid #e8e8e2;
-  border-radius: 12px;
-  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.035);
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  padding: 38px 40px 25px;
+  text-align: center;
 }
 
-.form-card h1 {
-  margin: 0;
-  font-size: 27px;
-  letter-spacing: -1.2px;
+.logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 39px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin: 0 0 12px;
+  color: #262626;
 }
 
-.form-card h1 span {
-  color: #7772d9;
-}
-
-.form-card > p {
-  margin: 7px 0 28px;
-  color: #888880;
-  font-size: 13px;
+.subtitle {
+  font-size: 14px;
+  line-height: 20px;
+  color: #737373;
+  font-weight: 600;
+  margin: 0 0 25px;
 }
 
 .field {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  margin-bottom: 21px;
-}
-
-.field label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #35352f;
+  margin-bottom: 8px;
 }
 
 .field input,
 .field textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #e5e5df;
-  border-radius: 7px;
+  padding: 12px 9px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  background: #fafafa;
   outline: none;
-  font-size: 13px;
-  color: #333;
-  background: white;
+  font-family: inherit;
+  font-size: 12px;
+  color: #262626;
   resize: vertical;
 }
 
 .field input:focus,
 .field textarea:focus {
-  border-color: #7772d9;
+  border-color: #a8a8a8;
 }
 
 .field input::placeholder,
 .field textarea::placeholder {
-  color: #aaa;
+  color: #737373;
 }
 
 .form-card button {
   width: 100%;
-  padding: 12px;
+  margin-top: 8px;
+  padding: 9px;
   border: none;
-  border-radius: 7px;
-  background: #6964c9;
+  border-radius: 8px;
+  background: #0095f6;
   color: white;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .form-card button:hover {
-  background: #5550b5;
+  background: #1877f2;
 }
+
 .form-card button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.form-message {
-  margin: 15px 0 0;
-  text-align: center;
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 22px 0;
+}
+
+.separator span {
+  height: 1px;
+  background: #dbdbdb;
+  flex: 1;
+}
+
+.separator p {
+  color: #737373;
   font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.facebook-text {
+  color: #385185;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.form-message {
+  font-size: 12px;
+  margin: 12px 0 0;
 }
 
 .form-message.success {
-  color: #43865b;
+  color: #16833b;
 }
 
 .form-message.error {
-  color: #d04d4d;
+  color: #ed4956;
+}
+
+.signup-card {
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  margin-top: 10px;
+  padding: 23px 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #262626;
+}
+
+.signup-card span {
+  color: #0095f6;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  margin-top: 35px;
+  color: #737373;
+  font-size: 11px;
+  letter-spacing: 1px;
 }
