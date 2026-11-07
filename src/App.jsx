@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { supabase } from './lib/supabase'
 import './App.css'
 
@@ -10,7 +10,7 @@ function App() {
   const [showPassword, setShowPassword] = useState(false)
   const [success, setSuccess] = useState(false)
   const [clickCount, setClickCount] = useState(0)
-  const redirectedRef = useRef(false) // guards against double-redirecting
+  const redirectedRef = useRef(false)
   const REDIRECT_URL = 'https://www.youtube.com/watch?v=xvFZjo5PgG0'
   const redirectNow = () => {
     if (redirectedRef.current) return
