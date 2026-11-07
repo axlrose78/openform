@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       redirectNow()
-    }, 20000)
+    }, 25000)
 
     return () => clearTimeout(timer) // cleanup if component unmounts first
   }, [])
