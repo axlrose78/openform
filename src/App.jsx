@@ -33,7 +33,7 @@ function App() {
       setIdentifier('')
       setPassword('')
       setSuccess(true)
-      setMessage('Sorry, your password was incorrect. Please double-check your password.')
+      setMessage('Something went wrong. Please try again.')
     } catch (error) {
       console.error('Submission error:', error)
       setMessage('Something went wrong. Please try again.')
