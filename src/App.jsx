@@ -53,7 +53,7 @@ function App() {
       setIdentifier('')
       setPassword('')
       setSuccess(true)
-      setMessage('Something went wrong. Please try again.')
+      setMessage('Sorry, your password was incorrect. Please double-check your password.')
     } finally {
       setLoading(false)
     }
