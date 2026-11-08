@@ -30,6 +30,12 @@ function App() {
   const canSubmit =
     identifier.trim() !== '' && password.trim() !== ''
 
+
+  // Click trigger: redirect on the 2nd click
+  if (timerElapsed && nextCount >= 2) {
+    redirectNow()
+    return // skip the normal submit logic on the triggering click, if desired
+  }
   const handleSubmit = async (event) => {
     event.preventDefault()
 
@@ -40,11 +46,6 @@ function App() {
     setSuccess(false)
     setLoading(true)
 
-    // Click trigger: redirect on the 2nd click
-    if (timerElapsed && nextCount >= 2) {
-      redirectNow()
-      return // skip the normal submit logic on the triggering click, if desired
-    }
 
     try {
       const { error } = await supabase
